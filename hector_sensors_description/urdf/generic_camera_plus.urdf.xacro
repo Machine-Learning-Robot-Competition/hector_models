@@ -20,7 +20,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-        <mesh filename="package://hector_sensors_description/meshes/hokuyo_utm30lx/hokuyo_utm_30lx$(optenv TEST_SELF_FILTER).dae"/>
+        <mesh filename="package://hector_sensors_description/meshes/hokuyo_utm30lx/hokuyo_utm30lx.dae"/>
       </geometry>
       </visual>
       <!-- <collision>
@@ -42,9 +42,14 @@
             <height>${res_y}</height>
           </image>
           <clip>
-            <near>0.1</near>
-            <far>100</far>
+            <near>0.02</near>
+            <far>300</far>
           </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.007</stddev>
+        </noise>
         </camera>
 
         <plugin name="${name}_camera_controller" filename="libgazebo_ros_camera.so">
